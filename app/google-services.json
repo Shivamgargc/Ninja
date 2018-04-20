@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "873576139395",
+    "firebase_url": "https://ninja-a35ec.firebaseio.com",
+    "project_id": "ninja-a35ec",
+    "storage_bucket": "ninja-a35ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873576139395:android:34f61a97e66a693e",
+        "android_client_info": {
+          "package_name": "com.example.android.ninja"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "873576139395-vdb863vm2qdktjcu6djc1bu8hocuj36k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.ninja",
+            "certificate_hash": "55c463b85561376dae77a3de2c865b814073288b"
+          }
+        },
+        {
+          "client_id": "873576139395-6qj7ih9pr2dime6mfp3am4kcuue6oqms.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXBccUeE6h0COD9XBu3TkPMxXtqhJPDV4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "873576139395-6qj7ih9pr2dime6mfp3am4kcuue6oqms.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
