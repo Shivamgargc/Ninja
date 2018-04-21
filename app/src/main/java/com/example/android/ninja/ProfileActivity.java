@@ -1,5 +1,6 @@
 package com.example.android.ninja;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -28,6 +29,7 @@ import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 
+
 import java.net.URL;
 import java.util.List;
 
@@ -39,6 +41,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private Button buttonLogOut;
     private TextView textViewDisplayName;
     private TextView textViewDisplayNumber;
+
 
     private StorageReference storageReference;
     private ImageView imageViewDisplayProfile;
@@ -91,15 +94,19 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     {
         final FirebaseUser user =firebaseAuth.getCurrentUser();
 
+        Toast.makeText(this,"Uploading Image Please Wait...",Toast.LENGTH_SHORT).show();
 
-       storageReference.child("images/"+ FirebaseAuth.getInstance().getCurrentUser().getUid()+".jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+
+        storageReference.child("images/"+ FirebaseAuth.getInstance().getCurrentUser().getUid()+".jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
            @Override
            public void onSuccess(Uri uri) {
 
+
                    Picasso.with(ProfileActivity.this).load(uri).into(imageViewDisplayProfile);
                    //  Glide.with(ProfileActivity.this).using(new FirebaseImageLoader()).load(storageReference).into(imageViewDisplayProfile);
-
+               Toast.makeText(ProfileActivity.this," Image Uploaded Successfully",Toast.LENGTH_SHORT).show();
            }
+
        });
 
 
@@ -123,16 +130,27 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 }
             });
         }
-    private void saveUserInformation()
-    {
-        String Name=editTextName.getText().toString().trim();
-        String Number=editTextNumber.getText().toString().trim();
+    private void saveUserInformation() {
 
-          UserInformation userInformation= new UserInformation(Name,Number);
-          FirebaseUser user= firebaseAuth.getCurrentUser();
-          databaseReference.child(user.getUid()).setValue(userInformation);
+        String Name = editTextName.getText().toString().trim();
+        String Number = editTextNumber.getText().toString().trim();
+        int a = Number.length();
+        int name = Name.length();
+        if (name ==0)
+        {
+            editTextName.setError("Field Can not  left empty");
+            return;
+        }
+        if (a != 10) {
+            editTextNumber.setError("Check Number Again");
+            return;
+        } else {
+            UserInformation userInformation = new UserInformation(Name, Number);
+            FirebaseUser user = firebaseAuth.getCurrentUser();
+            databaseReference.child(user.getUid()).setValue(userInformation);
 
-        Toast.makeText(this,"Information Saved..",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Information Saved..", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override

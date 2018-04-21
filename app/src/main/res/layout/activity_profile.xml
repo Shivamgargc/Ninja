@@ -34,7 +34,10 @@
             android:layout_height="wrap_content"
             android:hint="Mobile Number"
             android:id="@+id/editTextNumber"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginBottom="20dp"
+            android:inputType="number"/>
+
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,8 +69,18 @@
                 android:layout_height="wrap_content"
                 android:text="show Data"
                 android:id="@+id/buttonShowData"/>
-
         </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="PROFILE"
+            android:textSize="20dp"
+            android:textColor="#000000"
+            android:layout_marginTop="5dp"
+
+            />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -88,7 +101,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="50dp"
                 android:text="Number :"
                 android:layout_marginTop="10dp"/>
             <TextView
@@ -102,8 +115,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/imageViewDisplayProfile"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:autofillHints="Waiting For Pc to upload"/>
+
     </LinearLayout>
+
     </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

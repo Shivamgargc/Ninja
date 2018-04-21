@@ -54,19 +54,19 @@ private void registerUser()
 {
     String email=editTextEmail.getText().toString().trim();
     String password=editTextPassword.getText().toString().trim();
-
+    int psd=password.length();
+        if (psd<6)
+        {
+            editTextPassword.setError("Password Length is short");
+            return;
+        }
     if (TextUtils.isEmpty(email))
     {
 
         Toast.makeText(this,"Please Enter Email",Toast.LENGTH_SHORT).show();
         return;
     }
-    if (TextUtils.isEmpty(password))
-    {
 
-        Toast.makeText(this,"Please Enter Password",Toast.LENGTH_SHORT).show();
-        return;
-    }
     progressDialog.setMessage("Registering Please Wait...");
     progressDialog.show();
     firebaseAuth.createUserWithEmailAndPassword(email,password)
